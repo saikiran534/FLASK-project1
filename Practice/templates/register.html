@@ -20,39 +20,58 @@
   background:-webkit-linear-gradient(left, #F8A4D8 , #6C63FF);
   color: white;
   font-size: 30px;
+  
+}
+.body {
+  padding: 60px;
+  text-align: center;
+  background:-webkit-linear-gradient(left, #ffff66 0%, #ff99cc 100%);
+  color: black;
+  font-size: 15px;
+  
+}
+.button {
+  background-color: #4c63af; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 </style>
   </head>
-  
-<body style="background:-webkit-linear-gradient(powderblue);">
+ 
+<body >
 <div class = header>
   <h1 style="text-align:center",><b>Enter Your Details</b></h1>
 </div>
 
-
+<div class=body>
   <form action="\submit" method="post" align=center>
     <label>
-      Name 
+      Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </label>
     <input type="text" name="name" placeholder="Enter your name" required><br><br>
     <label>
-      Password
+      Password:
     </label>
     <input type="password" name="password" placeholder="Enter your password" required><br><br>
     <label>
-      Mobile No:
+      Mobile No: 
     </label>
     <input type="text" name="mobile" placeholder="Enter mobile number" required><br><br>
     <label>
-      DOB
+      DOB:
     </label>
     <input type="date" name="dob" placeholder="Enter Date Of Birth" required><br><br>
     <label>
-      Email
+      Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </label>
     <input type="email" name="email" placeholder="Enter your Email" required><br><br>
     <label>
-      Gender
+      Gender:
     </label>
     <input type="radio" id="male" name="gender" value="Male" >
     <label for="male" style="color: black">Male</label>
@@ -60,8 +79,11 @@
     <label for="female"  style="color: black">Female</label>
     <input type="radio" id="other" name="gender" value="other">
     <label for="other" style="color:black">Other</label><br><br>
-
-    <button>Submit</button> 
+    
+    
+    <button class = "button">Submit</button>
+     
+  </div>
 
 </form>
 

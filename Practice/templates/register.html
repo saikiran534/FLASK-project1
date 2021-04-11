@@ -10,54 +10,103 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!-- Optional theme -->
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-</head>
-<body>
-    <body style="background-color:powderblue;"></body>
-    <div class="container">
+    
+<style>
+  .header {
+  padding: 60px;
+  text-align: center;
+  background:-webkit-linear-gradient(left, #F8A4D8 , #6C63FF);
+  color: white;
+  font-size: 30px;
+}
+</style>
+  </head>
+  
+<body style="background:-webkit-linear-gradient(powderblue);">
+<div class = header>
+  <h1 style="text-align:center",><b>Enter Your Details</b></h1>
+</div>
+
+
+  <form action="\submit" method="post" align=center>
+    <label>
+      Name 
+    </label>
+    <input type="text" name="name" placeholder="Enter your name" required><br><br>
+    <label>
+      Password
+    </label>
+    <input type="password" name="password" placeholder="Enter your password" required><br><br>
+    <label>
+      Mobile No:
+    </label>
+    <input type="text" name="mobile" placeholder="Enter mobile number" required><br><br>
+    <label>
+      DOB
+    </label>
+    <input type="date" name="dob" placeholder="Enter Date Of Birth" required><br><br>
+    <label>
+      Email
+    </label>
+    <input type="email" name="email" placeholder="Enter your Email" required><br><br>
+    <label>
+      Gender
+    </label>
+    <input type="radio" id="male" name="gender" value="Male" >
+    <label for="male" style="color: black">Male</label>
+    <input type="radio" id="female" name="gender" value="Female">
+    <label for="female"  style="color: black">Female</label>
+    <input type="radio" id="other" name="gender" value="other">
+    <label for="other" style="color:black">Other</label><br><br>
+
+    <button>Submit</button> 
+
+</form>
+
+ 
+    <!-- <div class="container">
         <div class="row" style="margin-top: 40px">
             <div class="col-sm-6">
-                <form method="POST">
+                <form action="{{ url_for('submit')}}" method="POST">
                     <div class="form-group">
-                      <label for="email">Username : </label>
-                      <input type="text" name="uname" class="form-control" id="uname">
+                      <label for="Username">Username:</label> 
+                      <input type="text" name="Username" class="form-control">
                     </div>
                     <div class="form-group">
-                      <label for="email">Email : </label>
-                      <input type="email" name="mail" class="form-control" id="mail">
+                      <label for="Email">Email: </label>
+                      <input type="Email" name="Email" class="form-control">
                     </div>
-                    <form action="/action_page.php">
-                        <label for="gender">Gender:</label>
-                        <select name="gender" id="gender">
+                        <label for="Gender">Gender:</label>
+                        <select name="Gender">
                           <option value="volvo">Male</option>
                           <option value="saab">Female</option>
                         </select>
                         <br><br>
-                        <form action="/action_page.php">
-                            <label for="birthday">Date of Birth:</label>
-                            <input type="date" id="Date of Birth" name="Date of birth">
-                          </form>
+
+                        <div class="form-group">
+                          <label for="birthday">Date of Birth:</label>
+                          <input type="date"  name="DateofBirth">
+                        </div>
                           <br><br>
 
                           <div class="form-group">
-                            <label for="Address">Address : </label>
-                            <input type="Address" name="Address" class="form-control" id="Address">
+                            <label for="Address"> Address: </label>
+                            <input type="Address" name="Address" class="form-control">
                           </div>
 
                     <div class="form-group">
-                      <label for="email">Password : </label>
-                      <input type="password" name="passw" class="form-control" id="passw">
+                      <label for="email">Password: </label>
+                      <input type="Password" name="Password" class="form-control" >
                     </div>
                     <br><br>
                     
-                    <button type="submit" class="btn form-control btn-primary">Register</button>
+                    <button class="col-sm-6"><a href="{{ url_for('submit') }}" class="btn form-control btn-primary">Register</a></button>
                 </form>
             </div>
         </div>
-    </div>
+    </div> -->
+  </body>
 
-
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</body>
 </html>

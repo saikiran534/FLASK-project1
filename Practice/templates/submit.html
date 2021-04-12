@@ -1,18 +1,20 @@
 <body style="background:-webkit-linear-gradient(left, #ffff66 0%, #ff99cc 100%);"></body>
-% extends "layout.html"%}
+{% extends "layout.html"%}
 
 
 {% block body %}
 
-<h2>Details of a user</h2>
+<h1><i>Registered Details</h1></i>
 
     <ul style="list-style-type:disc;">
+        <h3>
        <li>Name = {{ name}}</li> 
        <li>Password = {{password}}</li>
        <li>DOB = {{dob}}</li>
        <li>Mobile number = {{ mobile }}</li>
        <li>Email = {{ email }}</li>
        <li>Gender = {{ gender }}</li>
+       </h3>
     </ul>
 
 {% endblock %}

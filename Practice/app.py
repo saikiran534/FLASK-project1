@@ -1,25 +1,26 @@
+import os
 from flask import Flask, render_template, redirect, url_for, request, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from model import *
-import psycopg2
+# from sqlalchemy.testing.config import db
+# from jinja2.nodes import Test
+# import psycopg2
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:admin@localhost:5432/postgres'
+app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:admin@localhost:5432/flask'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 
-def main() :
-    db.create_all()
-# Configure session to use filesystem
-# app.config["SESSION_PERMANENT"] = False
-# app.config["SESSION_TYPE"] = "filesystem"
-# Session(app)
+
+    
+
 
 
 @app.route("/")
 def index():
-    return render_template("page1.html")
+  db.create_all()
+  return render_template("page1.html")
 
 @app.route("/register")
 def register():
@@ -38,7 +39,10 @@ def submit():
     db.session.commit()
 
     return render_template("submit.html", name=name, password=generate_password_hash(password, method='sha256'), mobile=mobile, dob=dob, email=email, gender=gender)
-
+    
+    
+    if __name__ == "__main__":
+      app.run(debug=True)
 
     # username = request.form.get("username")
     # Email = request.form.get("Email")
@@ -50,8 +54,8 @@ def submit():
     # return render_template("submit.html", username=username, Email=Email, Gender=Gender, Date_of_Birth=Date_of_Birth, Address=Address, Password=Password)
         #generate_password_hash(Password, method='sha256)
 
-if __name__ == "__main__":
-  app.run(debug=True)
+# if __name__ == "__main__":
+#   app.run(debug=True)
   
 # @app.route("/login",methods=["GET", "POST"])
 # def login():

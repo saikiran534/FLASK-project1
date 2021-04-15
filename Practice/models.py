@@ -1,28 +1,10 @@
-# from flask_sqlalchemy import SQLAlchemy
-# from datetime import datetime
-
-# db = SQLAlchemy()
-
-# class User(db.Model) :
-
-#     __tablename__="users"
-
-#     name = db.Column(db.String, nullable=False)
-#     email = db.Column(db.String, primary_key=True)
-#     password = db.Column(db.String, nullable=True)
-#     dob = db.Column(db.String, nullable=False)
-#     gender = db.Column(db.String, nullable=False)
-#     timestamp = db.Column(db.DateTime, nullable=False)
-
-
-
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 class Test(db.Model):
-      __tablename__="book"
+      __tablename__="details"
       name = db.Column(db.String(100))
       password = db.Column(db.String(120), nullable=False)
       mobile = db.Column(db.String(15),primary_key=True,nullable=False)
@@ -39,5 +21,19 @@ class Test(db.Model):
           self. email= email
           self.gender = gender
 
+class upload(db.Model):
+    __tablename__="book"
+    isbn = db.Column(db.String(100), primary_key=True)
+    title = db.Column(db.String(100))
+    author = db.Column(db.String(100))
+    year = db.Column(db.String(100))
+    
+    def __init__(self, isbn,title,author,year):
+        self.isbn = isbn
+        self.title= title
+        self.author = author
+        self.year = year
 
 
+
+# Saideep

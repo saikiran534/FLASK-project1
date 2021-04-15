@@ -1,21 +1,41 @@
 from flask import Flask, session, request, render_template
-from model import *
+from models import *
 from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:admin@localhost:5432/flask'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
+
+
 def main() :
     db.create_all()
 @app.route("/")
 def index():
     return render_template("page1.html")
 
+
+
+@app.route("/search", methods=["POST"])
+def search():
+    name = request.form.get("search")
+    user = upload.query.all()
+    for i in user:
+        if i.isbn==name:
+            return render_template("search.html",isbn = i.isbn,title=i.title,author=i.author,year=i.year)
+        # else:
+    return render_template("hello.html")
+
+
+
+
 @app.route("/register")
 def register():
   return render_template("register.html")
 
+@app.route("/home")
+def home():
+    return render_template("page1.html")
 
 @app.route("/login")
 def login():
@@ -30,7 +50,7 @@ def submit1():
     users=Test.query.all()
     for user in users:
         if user.name==name and user.password==password:
-            return render_template("hello.html",name =name)
+            return render_template("search.html",name =name)
         else:
             return render_template("register.html",name = name)
 
@@ -56,7 +76,7 @@ def submit():
     db.session.add(s)
     db.session.commit()
 
-    return render_template("hello.html",name=name)
+    return render_template("search.html",name=name)
 
 
 

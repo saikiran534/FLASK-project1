@@ -21,6 +21,29 @@ def register():
 def login():
     return render_template("login.html")
 
+
+
+@app.route("/submit1",methods = ["POST"])
+def submit1():
+    name = request.form.get("name")
+    password = request.form.get("password")
+    users=Test.query.all()
+    for user in users:
+        if user.name==name and user.password==password:
+            return render_template("hello.html",name =name)
+        else:
+            return render_template("register.html",name = name)
+
+
+@app.route("/admin")
+def admin(): 
+    return render_template("submit.html",users = Test.query.all())
+
+
+
+
+
+    
 @app.route("/submit", methods = ["GET","POST"])
 def submit(): 
     name = request.form.get("name")
@@ -33,7 +56,7 @@ def submit():
     db.session.add(s)
     db.session.commit()
 
-    return render_template("submit.html",users = Test.query.all())
+    return render_template("hello.html",name=name)
 
 
 

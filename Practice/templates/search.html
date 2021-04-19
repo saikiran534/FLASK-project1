@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
     table 
     {
       font-family: arial, sans-serif;
@@ -10,14 +10,15 @@
       width: 100%;
     }
     
-    td, th {
+    td, th 
+    {
       border: 3px solid #0a0a0a;
       text-align: left;
       padding: 8px;
     }
  
-.topnav .search-container {
-  float: right;
+    .topnav .search-container {
+    float: right;
 }
 
 .topnav input[type=text] {
@@ -44,6 +45,8 @@
 </style>
 </head>
 <body>
+  <body style="background:-webkit-linear-gradient(left, #ffff66 0%, #ff99cc 100%);">
+  <h1><center>Welcome to Library </center></h1>
 
     <div class="search-container">
         <form action="/search", method ='POST'>
@@ -51,26 +54,45 @@
           <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
           <button class="col-sm-6"><i class="fa fa-search"></i></button>
         </form>
-      </div>
-<h1><i>Book Details</h1></i>
-<table class="table">
-    <thead>
+    </div>
+  <h1><i>Book Details</i></h1>
+     
+      <div>
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Isbn</th>
+              <th >Title</th>
+              <th>Author</th>
+              <th>Year</th>
+            </tr>
+        </thead>
        
-       <tr>
-          <th >title</th>
-          <th>author</th>
-          <th>year</th>
-       </tr>
-    </thead>
-    <tbody>
- 
-        <tr>
+        <tbody>
+          {% for i in users  %}
+             {% if i.isbn==name or i.author==name or i.title==name or i.year==name %}
+            <tr>
 
-         <td>{{title}}</td>
-         <td>{{author}}</td>
-         <td>{{year}}</td>
-      </tr>
-     </tbody>
-     <!-- <button class="col-sm-6"><a href="{{ url_for('home') }}" class="btn form-control btn-warning">Logout</a></button> -->
-</body>
+             <td><a href="{{hello}}">{{i.isbn}}</a></th>
+             <td>{{i.title}}</td>
+             <td>{{i.author}}</td>
+             <td>{{i.year}}</td>
+    
+          </tr>
+          {% endif %}
+             {% endfor %}
+         </tbody>
+    
+     
+      </div>
+      <div>
+        <a class="btn peach-gradient" href="{{ url_for('login') }}">
+
+          <button>Log out</button>
+        </a>
+          <!-- <center><button class="col-sm-6"><a href="{{ url_for('home') }}" class="btn form-control btn-warning"> Home </a></button> </center> -->
+      </div>
+
+    </body>
 </html>

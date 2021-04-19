@@ -11,15 +11,17 @@ class Test(db.Model):
       dob = db.Column(db.String,nullable=False)
       email = db.Column(db.String(80), nullable=False)
       gender = db.Column(db.String(80), nullable=False)
+      timestamp = db.Column(db.String(100),nullable=False)
 
 
-      def __init__(self, name,password,mobile,dob,email,gender):
+      def __init__(self, name,password,mobile,dob,email,gender,timestamp):
           self.name = name
           self.password = password
           self.mobile = mobile
           self.dob = dob
-          self. email= email
+          self.email= email
           self.gender = gender
+          self.timestamp = timestamp
 
 class upload(db.Model):
     __tablename__="book"
@@ -33,7 +35,3 @@ class upload(db.Model):
         self.title= title
         self.author = author
         self.year = year
-
-
-
-# Saideep

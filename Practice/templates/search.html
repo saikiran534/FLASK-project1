@@ -74,10 +74,14 @@
              {% if i.isbn==name or i.author==name or i.title==name or i.year==name %}
             <tr>
 
-             <td><a href="{{hello}}">{{i.isbn}}</a></th>
-             <td>{{i.title}}</td>
-             <td>{{i.author}}</td>
-             <td>{{i.year}}</td>
+         
+            <th><a href="{{ url_for('details', id=i.isbn)}}"  id={{i.isbn}}>{{i.isbn}}</a></th>
+
+
+           
+            <td>{{i.title}}</td>
+            <td>{{i.author}}</td>
+            <td>{{i.year}}</td>
     
           </tr>
           {% endif %}

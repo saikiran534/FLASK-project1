@@ -42,7 +42,7 @@ def submit():
     user = Test.query.filter_by(email=email).first()
     if user:  # if a user is found, we want to redirect back to signup page so user can try again
         flash('Email address already exists')
-        return render_template('login.html')
+        return render_template('register.html')
     db.session.add(s)
     db.session.commit()
     return render_template("search.html",name=name)
@@ -76,6 +76,19 @@ def search():
 @app.route("/admin")
 def admin(): 
     return render_template("submit.html",users = Test.query.all())
+
+@app.route("/details/<string:id>")
+def details(id):
+    print(id)
+    usr = upload.query.all()
+    for i in usr:
+        if id == i.isbn:
+            a = i.isbn
+            b = i.title
+            c = i.author
+            d = i.year
+    return render_template("details.html", isbn = a, title=b,author=c,year=d)
+
 
 
 if __name__ == "__main__" :

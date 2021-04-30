@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+</head>
+<body>
+    <table >
+        <thead>
+          <tr>
+            <th>Isbn</th>
+            <th >Title</th>
+            <th>Author</th>
+            <th>Year</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for a in range(s)%} 
+            <tr>
+                <td>{{b[a]["isbn"]}}</td>
+                <td>{{b[a]["title"]}}</td>
+                <td>{{b[a]["author"]}}</td>
+                <td>{{b[a]["year"]}}</td>
+          
+            </tr>
+        </tbody>
+           {%endfor%}
+</body>
+</html>

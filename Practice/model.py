@@ -40,7 +40,6 @@ class Review(db.Model):
     __tablename__="review"
     user = db.Column(db.String(80),nullable=False)
     isbn = db.Column(db.String(80), primary_key=True, nullable=False)
-    
     rating = db.Column(db.String(80),unique=False,nullable=False)
     review = db.Column(db.String(80),unique=False,nullable=False)
 

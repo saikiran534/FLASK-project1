@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+    .button {
+          background-color: #4c63af; /* Green */
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+        }
+</style>
+{% endblock %}     
+
+{% block body %}
+<body style="background:-webkit-linear-gradient(left, #F8A4D8 , #6C63FF);">
+<div class="container">
+
+
+    
+    <div  style="text-align:center" class="mx-auto" >
+        <h1 style="text-align:center; text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; color:rebeccapurple;" >Welcome to Library</h1>
+       <br><br><br>
+        <button class = "button"><a href="/register" class="button button1  p-2 ">Register</a></button>
+
+        <button class ="button"><a href="/login" class="button button2  p-2" >Login</a></button>
+        
+    </div>
+
+    <!-- <br>
+    <br>
+    <div>
+        <img src="{{url_for('static', filename='BOOKS.jpg')}}" alt="Books" height="400" style="padding-left: 400px;">
+    </div>
+    <br>
+    <br> -->
+
+
+</div>
+</body>
+
+
+{% endblock %}      

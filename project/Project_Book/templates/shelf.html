@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='BOOKS.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <title>Favorites</title>
+</head>
+<body style="background:#fff066d7">
+<h1>Favorites of {{session['name']}}</h1>
+
+<a class="button has-text-danger text-right" href="{{ url_for('back') }}">
+    <button type="button" class="btn btn-outline-info btn-lg ">Back</button>
+    </a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>ISBN</th>
+                
+               
+            </tr> 
+        </thead>
+        
+        <tbody>
+            {% for i in a %}
+           
+            <tr>
+        
+                <td>{{i.book}}</td>
+                <td>{{i.isbn}}</td>
+                <td><a href="/delete/{{i.book}}" class="button is-danger is-light">delete</a></td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+        
+    </table>
+
+    
+
+</body>
+</html>
